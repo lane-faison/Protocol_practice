@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ReceivingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReceivingVC" customModule="ProtocolPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,107 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EjU-fu-7Up">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kd4-5f-rvD"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="ReceivingVC" id="3ir-mz-zFi">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PUO-WY-Nsw">
+                                            <connections>
+                                                <segue destination="VGk-YS-V4U" kind="show" identifier="showSendingVC" id="aHI-yA-hka"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' button to add and send text using delegates!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKO-jg-VmU">
+                                <rect key="frame" x="16" y="80" width="343" height="567"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EjU-fu-7Up" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Jj-hK-fgq"/>
+                            <constraint firstItem="qKO-jg-VmU" firstAttribute="top" secondItem="EjU-fu-7Up" secondAttribute="bottom" constant="20" id="3Nu-fL-oXW"/>
+                            <constraint firstItem="EjU-fu-7Up" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="9MI-Vp-hZd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qKO-jg-VmU" secondAttribute="bottom" constant="20" id="CA8-yO-xvZ"/>
+                            <constraint firstItem="qKO-jg-VmU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PMh-Rp-TeK"/>
+                            <constraint firstItem="qKO-jg-VmU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="m1q-Rh-Rlm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qKO-jg-VmU" secondAttribute="trailing" id="p6e-dJ-vvg"/>
+                            <constraint firstAttribute="trailing" secondItem="EjU-fu-7Up" secondAttribute="trailing" id="saU-bO-0zt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="receivingTextField" destination="qKO-jg-VmU" id="2yQ-x8-nBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--SendingVC-->
+        <scene sceneID="yOB-GN-jsY">
+            <objects>
+                <viewController id="VGk-YS-V4U" customClass="SendingVC" customModule="ProtocolPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4K-iI-djH"/>
+                        <viewControllerLayoutGuide type="bottom" id="XOt-KV-oNt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0xK-B7-pis">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ach-pT-6Or">
+                                <rect key="frame" x="20" y="293.5" width="335" height="80"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter some text!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="58t-bM-PM7">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-ZV-SOt">
+                                        <rect key="frame" x="50" y="50" width="235" height="30"/>
+                                        <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="gzg-Ur-YLD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="SEND">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendBtnWasTapped:" destination="VGk-YS-V4U" eventType="touchUpInside" id="03Z-Yk-ixi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="58t-bM-PM7" firstAttribute="leading" secondItem="ach-pT-6Or" secondAttribute="leading" id="1ng-Nj-saf"/>
+                                    <constraint firstAttribute="trailing" secondItem="58t-bM-PM7" secondAttribute="trailing" id="8dL-AE-aWe"/>
+                                    <constraint firstAttribute="trailing" secondItem="jYc-ZV-SOt" secondAttribute="trailing" constant="50" id="X7j-Ir-Z1B"/>
+                                    <constraint firstItem="jYc-ZV-SOt" firstAttribute="leading" secondItem="ach-pT-6Or" secondAttribute="leading" constant="50" id="cH3-u4-fj6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ach-pT-6Or" firstAttribute="centerY" secondItem="0xK-B7-pis" secondAttribute="centerY" id="BfA-ZV-dDM"/>
+                            <constraint firstAttribute="trailing" secondItem="ach-pT-6Or" secondAttribute="trailing" constant="20" id="UwK-uq-XSM"/>
+                            <constraint firstItem="ach-pT-6Or" firstAttribute="centerX" secondItem="0xK-B7-pis" secondAttribute="centerX" id="jtW-PJ-Hwa"/>
+                            <constraint firstItem="ach-pT-6Or" firstAttribute="leading" secondItem="0xK-B7-pis" secondAttribute="leading" constant="20" id="vyN-VR-9QY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dataEntryTextField" destination="58t-bM-PM7" id="tyq-WW-4Lt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7h-3z-aU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="38"/>
         </scene>
     </scenes>
 </document>
